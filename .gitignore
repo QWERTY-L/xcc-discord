@@ -1,6 +1,7 @@
 # Sensative Files
 creds.json
 credidentials.json
+config.json
 
 #vscode
 .vscode
