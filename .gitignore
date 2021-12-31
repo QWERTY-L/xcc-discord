@@ -1,3 +1,10 @@
+# Sensative Files
+creds.json
+credidentials.json
+
+#vscode
+.vscode
+
 # Logs
 logs
 *.log
