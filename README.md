@@ -36,6 +36,15 @@ And `cd` into it.
 ```
 cd xcc-discord
 ```
+
+Install relevant libraries
+
+```
+npm install
+```
+
+And add the config.json file given to you by [QWERTY-L](https://github.com/QWERTY-L)
+
 Once you're done, simply run it using 
 
 ```
