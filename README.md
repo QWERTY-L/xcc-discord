@@ -43,7 +43,7 @@ Install relevant libraries
 npm install
 ```
 
-And add the config.json file given to you by [QWERTY-L](https://github.com/QWERTY-L)
+And add the .env file given to you by [QWERTY-L](https://github.com/QWERTY-L)
 
 Once you're done, simply run it using 
 
