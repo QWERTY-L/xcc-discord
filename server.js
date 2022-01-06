@@ -15,9 +15,14 @@ client.on('messageCreate', msg => {
     content = msg.content.toLowerCase().substring(2);
 
     //COMMANDS
-    if (content === "ping") {
-      msg.reply("pong!");
+    if (content === "link") {
+	msg.reply("https://github.com/QWERTY-L/xcc-discord");
     }
+    if (content === "ping") {
+        msg.reply("pong!");
+    }
+
+
 
   }
 });
