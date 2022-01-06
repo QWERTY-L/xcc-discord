@@ -7,6 +7,7 @@ const client = new Discord.Client({ intents: intent });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
+  client.user.setActivity(settings.prefix + "help to see commands!");
 });
 
 client.on('messageCreate', msg => {
