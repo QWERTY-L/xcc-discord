@@ -10,6 +10,18 @@ client.on('ready', () => {
   client.user.setActivity(settings.prefix + "help to see commands!");
 });
 
+client.on('guilMemberAdd', member =>{
+
+   const channel = member.guild.channel.find(channel => channel.name == "bot-testing")
+   if(!channel) return;
+
+   channel.send('Welcome to the server, ${member},!')
+
+});
+
+
+
+
 client.on('messageCreate', msg => {
   if (msg.content.toLowerCase().substring(0, settings.prefix.length) == settings.prefix) {
 
