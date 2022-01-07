@@ -12,10 +12,11 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', member =>{
 
-   const channel = member.guild.channel.find(channel => channel.name == "bot-testing")
+   const channel = member.guild.channels.cache.find(channel => channel.name == "general")
    if(!channel) return;
 
-   channel.send('Welcome to the server, ${member},!')
+   channel.send(`Welcome to the server, ${member.toString()}!`)
+   console.log(128)
 
 });
 
