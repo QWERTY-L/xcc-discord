@@ -10,7 +10,7 @@ client.on('ready', () => {
   client.user.setActivity(settings.prefix + "help to see commands!");
 });
 
-client.on('guilMemberAdd', member =>{
+client.on('guildMemberAdd', member =>{
 
    const channel = member.guild.channel.find(channel => channel.name == "bot-testing")
    if(!channel) return;
