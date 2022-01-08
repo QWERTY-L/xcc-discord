@@ -12,7 +12,7 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.cache.find(channel => channel.name == "general")
+  const channel = member.guild.channels.cache.find(channel => channel.name == settings.greetingChannel)
   if (!channel) return;
 
   channel.send(`Welcome to the server, ${member.toString()}!`)
@@ -21,7 +21,7 @@ client.on('guildMemberAdd', member => {
 client.on('messageCreate', msg => {
   if (msg.content.toLowerCase().substring(0, settings.prefix.length) == settings.prefix) {
 
-    content = msg.content.toLowerCase().substring(2);
+    content = msg.content.substring(2);
     args = content.split(' ');
 
     //COMMANDS
