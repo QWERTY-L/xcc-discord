@@ -1,6 +1,16 @@
 require('dotenv').config()
 const Discord = require("discord.js");
 const settings = require('./settings.json');
+const { createCommand, commandHandler }= require("./commandHandler")
+
+
+const command1 = new createCommand("ping", "Returns Pong", null)
+const command2 = new createCommand("pong", "Returns Ping", null)
+const command3 = new createCommand("help", "Return a list of help commands", null)
+const handler = new commandHandler([command1, command2, command3]);
+
+
+
 
 var intent = new Discord.Intents(32767); //ALL INTENTS
 const client = new Discord.Client({ intents: intent });
@@ -34,11 +44,40 @@ client.on("interactionCreate", async (interaction) => {
       content: "pong",
       ephermeral: false,
     });
+
+
+  } else if (commandName === "pong") {
+      interaction.reply({
+          content: "ping",
+          ephermeral: false,
+      })
   }; 
+});
 
 
 
 
+client.on("messageCreate", msg => {
+    if (msg.content.toLowerCase().substring(0, settings.prefix.length) == settings.prefix) {
+        content = msg.content.toLowerCase().substring(2);
+        if (!(handler.verifyCommandName(content))) {
+            msg.reply(handler.returnCommandList()); 
+        }; 
+
+        switch (content) {
+            case "ping":
+                msg.reply("pong");
+				break;
+            
+            case "pong":
+                msg.reply("ping");
+				break;
+
+            case "help":
+                msg.reply(handler.returnCommandList());
+				break;
+        };
+    }; 
 });
 
 
