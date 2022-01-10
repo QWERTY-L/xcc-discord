@@ -23,7 +23,7 @@ db.connect((err) => {
 });
 
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.username}!`);
+  console.log(`discord logged in as ${client.user.username}!`);
   client.user.setActivity(settings.prefix + "help to see commands!");
 });
 
