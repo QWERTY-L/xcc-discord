@@ -1,13 +1,31 @@
+
 require('dotenv').config()
 const fs = require('fs');
 const Discord = require("discord.js");
-const settings = require('./settings.json');
+const settings = require("./settings.json");
+const { Client } = require("pg");
 
 var intent = new Discord.Intents(32767); //ALL INTENTS
 const client = new Discord.Client({ intents: intent });
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.username}!`);
+const connectionString = process.env.DATABASE_URL;
+
+// create db connection
+const db = new Client({
+  connectionString,
+});
+
+// connect to db
+db.connect((err) => {
+  if (err) {
+    console.error("db connection error", err.stack);
+  } else {
+    console.log("db connected");
+  }
+});
+
+client.on("ready", () => {
+  console.log(`discord logged in as ${client.user.username}!`);
   client.user.setActivity(settings.prefix + "help to see commands!");
 });
 
@@ -59,8 +77,6 @@ function set(msg, args) {
   })
   msg.reply(`set \`${args[1]}\` to \`${args[2]}\``)
 }
-
-
 
 // login with token from .env
 client.login(process.env.TOKEN);
