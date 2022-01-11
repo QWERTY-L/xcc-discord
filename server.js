@@ -32,10 +32,25 @@ client.on('messageCreate', msg => {
       msg.reply("pong!");
     }
     if (args[0] === "set") {
-      set(msg, args);
+      if(check(msg)){
+        set(msg, args);
+      } else{
+        msg.reply("Sorry not an admin.");
+      }
+    }
+    if(args[0] == "check"){
+      if(check(msg)){
+        msg.reply("You are an admin");
+      } else{
+        msg.reply("Sorry not an admin.");
+      }
     }
   }
 });
+
+function check(msg){ //checks if the author of a message is an admin. Returns a boolean.
+  return settings.admins.includes(msg.author.tag);
+}
 
 function set(msg, args) {
   settings[args[1]] = args[2]
@@ -44,6 +59,7 @@ function set(msg, args) {
   })
   msg.reply(`set \`${args[1]}\` to \`${args[2]}\``)
 }
+
 
 
 // login with token from .env
