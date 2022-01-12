@@ -74,7 +74,7 @@ client.on("messageCreate", (msg) => {
         .addFields({
           name: "Programming",
           value: `[blobcode](https://github.com/blobcode)
-          [QWERTY-L](https://github.com/QUERTY-L)
+          [QWERTY-L](https://github.com/QWERTY-L)
           [z4ab](https://github.com/z4ab)
           [Tri](https://github.com/LotusDeath69)
           [vv2122](https://github.com/vv2122)`,
@@ -85,7 +85,7 @@ client.on("messageCreate", (msg) => {
       const embed = new Discord.MessageEmbed()
         .setTitle("baguette")
         .setImage(
-          `https://loremflickr.com/1920/1080/baguette?random=${Math.random()}`
+          `https://loremflickr.com/1280/720/baguette?random=${Math.random()}`
         );
       msg.reply({ embeds: [embed] });
     }
