@@ -81,6 +81,14 @@ client.on("messageCreate", (msg) => {
         });
       msg.reply({ embeds: [embed] });
     }
+    if (args[0] == "baguette") {
+      const embed = new Discord.MessageEmbed()
+        .setTitle("baguette")
+        .setImage(
+          `https://loremflickr.com/1920/1080/baguette?random=${Math.random()}`
+        );
+      msg.reply({ embeds: [embed] });
+    }
   }
 });
 
