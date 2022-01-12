@@ -66,6 +66,21 @@ client.on("messageCreate", (msg) => {
         msg.reply("Sorry not an admin.");
       }
     }
+    if (args[0] === "credits") {
+      // yes, this gore is neccesary for the message to be correctly formatted
+      const embed = new Discord.MessageEmbed()
+        .setTitle("Credits")
+        .setDescription("Thanks to everyone who worked on xcc-bot!")
+        .addFields({
+          name: "Programming",
+          value: `[blobcode](https://github.com/blobcode)
+          [QWERTY-L](https://github.com/QUERTY-L)
+          [z4ab](https://github.com/z4ab)
+          [Tri](https://github.com/LotusDeath69)
+          [vv2122](https://github.com/vv2122)`,
+        });
+      msg.reply({ embeds: [embed] });
+    }
   }
 });
 
